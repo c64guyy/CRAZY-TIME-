@@ -33,12 +33,18 @@
             margin-top: 20px;
             color: #fff;
         }
+        img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
 
-    <img src="crazytime.png" alt="*** RANDOMIZZATORE CRAZY TIME ***"> 
-    <br>
+    <!-- Inserisci l'immagine al posto del titolo -->
+    <img src="crazytime.png" alt="Randomizzatore Crazy Time">
 
     <label for="puntate">Quante puntate vuoi fare?:</label>
     <input type="number" id="puntate" min="1" max="100" value="1">
@@ -73,36 +79,37 @@
                 await animazioneSlot();
                 let puntata = Math.floor(Math.random() * 8) + 1;
 
-                let color = "";
-                let message = "";
+                let imageSrc = "";
+                let altText = "";
 
                 if (puntata === 3) {
-                    color = "magenta";
-                    message = "5";
+                    imageSrc = "img5.jpg"; // Inserisci il percorso dell'immagine per la puntata 3
+                    altText = "5";
                 } else if (puntata === 4) {
-                    color = "magenta";
-                    message = "10";
+                    imageSrc = "img10.jpg"; // Inserisci il percorso dell'immagine per la puntata 4
+                    altText = "10";
                 } else if (puntata === 5) {
-                    color = "blue";
-                    message = "COIN FLIP";
+                    imageSrc = "coinflip.png"; // Inserisci il percorso dell'immagine per COIN FLIP
+                    altText = "COIN FLIP";
                 } else if (puntata === 6) {
-                    color = "magenta";
-                    message = "PACHINKO";
+                    imageSrc = "pachinko.png"; // Inserisci il percorso dell'immagine per PACHINKO
+                    altText = "PACHINKO";
                 } else if (puntata === 7) {
-                    color = "green";
-                    message = "CASH HUNT";
+                    imageSrc = "cashhunt.png"; // Inserisci il percorso dell'immagine per CASH HUNT
+                    altText = "CASH HUNT";
                 } else if (puntata === 8) {
-                    color = "red";
-                    message = "CRAZY TIME";
+                    imageSrc = "crazybonus.png"; // Inserisci il percorso dell'immagine per CRAZY TIME
+                    altText = "CRAZY TIME";
                 } else if (puntata === 2) {
-                    color = "yellow";
-                    message = "2";
+                    imageSrc = "img2.jpg"; // Inserisci il percorso dell'immagine per la puntata 2
+                    altText = "2";
                 } else if (puntata === 1) {
-                    color = "cyan";
-                    message = "1";
+                    imageSrc = "img1.jpg"; // Inserisci il percorso dell'immagine per la puntata 1
+                    altText = "1";
                 }
 
-                resultDiv.innerHTML = `<span style="color:${color};">${message}</span>`;
+                // Mostra l'immagine
+                resultDiv.innerHTML = `<img src="${imageSrc}" alt="${altText}">`;
                 await sleep(1000); // Pausa per mostrare il risultato
             }
         }
